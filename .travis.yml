@@ -3,7 +3,7 @@ language: 'generic'
 services:
   - docker
 before_install:
-  - sudo apt update -y
+  - sudo apt-get update -y
   - sudo apt-get install docker-engine -y
   - sudo service docker restart
 script:
