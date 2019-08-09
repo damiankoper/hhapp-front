@@ -2,7 +2,8 @@ language: node_js
 services:
   - docker
 before_install:
-  - docker-compose run vue-dev npm test
+  - sudo apt update -y
+  - sudo apt install --only-upgrade docker-ce -y
 script:
   - docker-compose run vue-dev npm test # jest test with coverage flag does coverage too
 after_script:
