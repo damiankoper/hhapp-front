@@ -2,7 +2,7 @@
 FROM node:lts AS develop-stage
 WORKDIR /app
 COPY ./package*.json ./
-RUN npm install --verbose
+RUN npm install
 
 #build
 FROM develop-stage as build-stage
