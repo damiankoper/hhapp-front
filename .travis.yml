@@ -1,9 +1,12 @@
+sudo: 'required'
+language: 'generic'
 services:
   - docker
 before_install:
   - sudo apt update -y
-  - sudo apt install --only-upgrade docker-ce -y
+  - sudo apt-get install docker-engine -y
 script:
+  - docker version
   - docker-compose run vue-dev npm test # jest test with coverage flag does coverage too
 after_script:
   - 'cat coverage/lcov.info | ./node_modules/.bin/coveralls' # sends the coverage report to coverall s
