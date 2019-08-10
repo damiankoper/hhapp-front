@@ -1,34 +1,20 @@
-# hhapp-front
+[![Build Status](https://travis-ci.org/damiankoper/hhapp-front.svg?branch=master)](https://travis-ci.org/damiankoper/hhapp-front.svg?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/damiankoper/hhapp-front/badge.svg?branch=master)](https://coveralls.io/github/damiankoper/hhapp-front?branch=master)
+# HouseholdApp Front
 
-## Project setup
-```
-npm install
-```
+Set on 
+* Docker@19.03.1
+* DockerCompose@1.24.1
 
-### Compiles and hot-reloads for development
+### Run for development
 ```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+docker-compose up
 ```
 
-### Run your tests
+### Run for production
+Config:
+* Server: nginx
+* Port: 80
 ```
-npm run test
+docker-compose -f docker-compose.prod.yml up -d
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
