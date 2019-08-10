@@ -1,6 +1,6 @@
 version: '3.7'
 services:
-  vue-dev:
+  hhapp-front-dev:
     build:
       context: .
       dockerfile: .docker/Dockerfile
