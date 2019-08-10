@@ -19,7 +19,6 @@ script:
  # - docker-compose run vue-dev npm run coverage # jest test with coverage flag does coverage too
 after_script:
   - 'sed -i.bak 's@^SF:/home/travis/build/damiankoper/hhapp-front/@SF:@' coverage/lcov.info'
-
   - 'cat coverage/lcov.info'
   - 'cat coverage/lcov.info | ./node_modules/.bin/coveralls' # sends the coverage report to coveralls
 #  - docker-compose run vue-dev cat coverage/lcov.info
