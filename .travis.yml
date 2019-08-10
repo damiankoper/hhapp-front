@@ -18,5 +18,6 @@ script:
   - docker version
   - docker-compose run vue-dev npm run coverage # jest test with coverage flag does coverage too
 after_script:
-  - docker-compose run vue-dev cat coverage/lcov.info
-  - docker-compose run vue-dev cat coverage/lcov.info | npx coveralls # jest test with coverage flag does coverage too
+  - 'cat coverage/lcov.info | ./node_modules/.bin/coveralls' # sends the coverage report to coveralls
+#  - docker-compose run vue-dev cat coverage/lcov.info
+#  - docker-compose run vue-dev cat coverage/lcov.info | npx coveralls # jest test with coverage flag does coverage too
