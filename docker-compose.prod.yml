@@ -6,3 +6,4 @@ services:
       dockerfile: .docker/Dockerfile
     ports:
     - '80:80'
+    command: ["nginx", "-g", "daemon off;"]
