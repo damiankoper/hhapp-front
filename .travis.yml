@@ -1,5 +1,7 @@
 sudo: 'required'
-language: 'generic'
+language: 'node_js'
+node_js:
+ - 'node' # use latest stable nodejs version
 services:
   - docker
 env:
@@ -12,7 +14,6 @@ before_install:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
-  - docker version
 script:
   - npm run coverage
  # - docker-compose run vue-dev npm run coverage # jest test with coverage flag does coverage too
