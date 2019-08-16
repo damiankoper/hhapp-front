@@ -1,5 +1,5 @@
 sudo: 'required'
-language: 'generic'
+language: 'minimal'
 services:
   - docker
 env:
@@ -15,5 +15,4 @@ before_install:
 script:
   - docker-compose run hhapp-front-dev npm run coverage
 after_script:
-  - docker-compose run hhapp-front-dev sed -i.bak "s@^SF:/app/@SF:@" coverage/lcov.info
-  - docker-compose run hhapp-front-dev cat coverage/lcov.info | npx coveralls
+  - docker-compose -f docker-compose.test.yml run -e TRAVIS=$TRAVIS -e TRAVIS_JOB_ID=$TRAVIS_JOB_ID hhapp-back-test /bin/sh -c "cat coverage/lcov.info | npx coveralls"

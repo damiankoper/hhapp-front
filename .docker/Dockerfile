@@ -1,5 +1,5 @@
 #dev
-FROM node:lts AS develop-stage
+FROM node:lts-alpine AS develop-stage
 WORKDIR /app
 COPY ./package*.json ./
 RUN npm install
