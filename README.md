@@ -2,7 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/damiankoper/hhapp-front/badge.svg?branch=master)](https://coveralls.io/github/damiankoper/hhapp-front?branch=master)
 # HouseholdApp Front
 
-Set on 
+Set on: 
 * Docker@19.03.1
 * DockerCompose@1.24.1
 
