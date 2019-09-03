@@ -1,0 +1,20 @@
+$color-primary: #ffffff;
+$color-primary-light: #ffffff;
+$color-primary-dark: #cccccc;
+$color-primary-text: #272726;
+$color-primary-text-light: adjust-color($color-primary-text, $alpha: -0.38);
+
+$color-secondary:#F56D1E;
+$color-secondary-light:#ff9e4f;
+$color-secondary-lighter:adjust-color($color-secondary-light, $lightness: 25%);
+$color-secondary-dark: #bb3d00;
+
+$color-secondary-text: #ffffff;
+$color-secondary-text-light: #ffffff99;
+
+:export {
+    color-secondary: $color-secondary;
+    color-secondary-light: $color-secondary-light;
+    color-secondary-lighter: $color-secondary-lighter;
+    color-secondary-dark: $color-secondary-dark;
+}

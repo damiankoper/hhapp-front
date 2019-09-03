@@ -1,29 +1,41 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
+<script lang='ts'>
+import { Component, Vue } from 'vue-property-decorator';
+@Component({})
+export default class App extends Vue {}
+</script>
+
 <style lang="scss">
+@import "reset-css";
+@import "~material-design-icons/iconfont/material-icons.css";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800");
+
+body {
+  height: 100vh;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+
+  background: {
+    //image: url("./assets/img/bg.jpg");
+    color: rgba(250, 250, 250, 0.9);
+    blend-mode: screen;
+    size: cover;
   }
+
+  width: 100%;
+  min-height: 100%;
+  -webkit-tap-highlight-color: transparent;
+
+
 }
 </style>

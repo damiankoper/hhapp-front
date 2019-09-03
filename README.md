@@ -8,7 +8,12 @@ Set on:
 
 ### Run for development
 ```
-docker-compose up
+npm run docker:dev
+```
+### Tests
+```
+npm run docker:test
+npm run docker:test:watch
 ```
 
 ### Run for production
@@ -16,5 +21,5 @@ Config:
 * Server: nginx
 * Port: 80
 ```
-docker-compose -f docker-compose.prod.yml up -d
+npm run docker:prod
 ```

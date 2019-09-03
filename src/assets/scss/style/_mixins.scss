@@ -1,0 +1,10 @@
+/* @mixin circleClickParent {
+    >*:not(.h-circle-click) /deep/ {
+        z-index: 1;
+        position: relative;
+    }
+
+    >.h-circle-click  /deep/{
+        z-index: 0;
+    }
+} */
