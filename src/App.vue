@@ -27,8 +27,8 @@ body {
 
   background: {
     //image: url("./assets/img/bg.jpg");
-    color: rgba(250, 250, 250, 0.9);
-    blend-mode: screen;
+    color: rgba(255, 255, 255, 1);
+    //blend-mode: screen;
     size: cover;
   }
 

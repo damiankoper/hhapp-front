@@ -1,7 +1,7 @@
 <template>
   <div
     class="h-circle-click"
-    @click="clicked"
+    @click="click"
     @mousedown="mousedown"
     ref="watcher"
   >
@@ -10,7 +10,7 @@
       ref="action"
       :style="{backgroundColor: color}"
     ></div>
-    <slot/>
+    <slot />
   </div>
 </template>
 
@@ -19,50 +19,63 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 import anime from 'animejs';
 @Component({})
 export default class CircleClick extends Vue {
-  @Prop({default: 'red'})
+  @Prop({ default: 'red' })
   public color!: string;
+  @Prop({ default: false })
+  public keepCircle!: boolean;
 
   public animEnter?: anime.AnimeInstance;
   public animLeave?: anime.AnimeInstance;
-  public async clicked(e: MouseEvent) {
-    this.$emit('clicked', e);
+  public target!: HTMLElement;
+
+  public mounted() {
+    this.target = this.$refs.action as HTMLElement;
   }
+
+  public async click(e: MouseEvent) {
+    this.$emit('click', e);
+  }
+
   public async mousedown(e: MouseEvent) {
     this.$emit('mousedown', e);
-
-    if (this.animEnter && this.animLeave) {
+    if (this.animEnter) {
       this.animEnter.pause();
+    }
+    if (this.animLeave) {
       this.animLeave.pause();
     }
 
-    const target = this.$refs.action as HTMLElement;
     const watcher = this.$refs.watcher as HTMLElement;
     const rect = watcher.getBoundingClientRect();
     const shift = rect.width / 2;
-    target.style.width = rect.width + 'px';
-    target.style.height = rect.width + 'px';
-    target.style.opacity = '0.3';
-    target.style.transform = `
+    this.target.style.width = rect.width + 'px';
+    this.target.style.height = rect.width + 'px';
+    this.target.style.opacity = '1';
+    this.target.style.transform = `
       translateX(${e.clientX - rect.left - shift}px)
       translateY(${e.clientY - rect.top - rect.height / 2}px)
-      scale(0)
-    `;
+      scale(0)`;
 
     this.animEnter = anime({
-      targets: target,
+      targets: this.target,
       scale: 2,
       easing: 'easeInQuad',
       duration: 150,
     });
     await this.animEnter.finished;
-    this.animLeave = anime({
-      targets: target,
-      opacity: 0,
-      easing: 'easeOutCubic',
-      duration: 150,
-    });
-    await this.animLeave.finished;
+    if (!this.keepCircle) {
+      await this.hide();
+    }
+  }
 
+  public async hide() {
+    this.animLeave = anime({
+        targets: this.target,
+        opacity: 0,
+        easing: 'easeOutCubic',
+        duration: 150,
+      });
+    await this.animLeave.finished;
   }
 }
 </script>
@@ -70,12 +83,13 @@ export default class CircleClick extends Vue {
 <style lang='scss' scoped>
 .h-circle-click {
   overflow: hidden;
-  position:relative;
+  position: relative;
   &__action {
     position: absolute;
     border-radius: 999px;
+    pointer-events: none;
   }
-  /deep/ *{
+  /deep/ * {
     z-index: 1;
   }
 }

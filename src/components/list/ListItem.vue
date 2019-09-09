@@ -1,22 +1,22 @@
 <template>
-  <circle-click
-    :color="colors['color-secondary-light']"
-    class="h-list__list-item"
-  >
-    <div class="h-list__list-item__img">
-      <img :src="img" />
-    </div>
-    <div class="h-list__list-item__text">
-      <div class="primary">{{text}}</div>
-      <div
-        class="secondary"
-        v-if="secondary"
-      >{{secondary}}</div>
-    </div>
-    <div class="h-list__list-item__text">
-      <i class="material-icons">more_vert</i>
-    </div>
-  </circle-click>
+    <circle-click
+      :color="colors['color-secondary-lighter']"
+      class="h-list__list-item"
+    >
+      <div class="h-list__list-item__img">
+        <img :src="img" />
+      </div>
+      <div class="h-list__list-item__text">
+        <div class="primary">{{text}}</div>
+        <div
+          class="secondary"
+          v-if="secondary"
+        >{{secondary}}</div>
+      </div>
+      <div class="h-list__list-item__text">
+     <!--    <i class="material-icons">more_vert</i> -->
+      </div>
+    </circle-click>
 </template>
 
 <script lang='ts'>
@@ -50,6 +50,7 @@ export default class ListItem extends Vue {
   grid-template-columns: 40px auto 24px;
   align-items: center;
   position: relative;
+  background-color: $color-primary;
 
   &__img {
     @include square(40px, 999px);
