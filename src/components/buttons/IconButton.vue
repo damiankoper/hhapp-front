@@ -1,9 +1,9 @@
 <template>
-
   <circle-click
     :color="colors['color-secondary-light']"
     class="h-icon-button"
     tabindex="0"
+    @click="(e)=>$emit('click', e)"
   >
     <i class="h-icon-button__icon material-icons">
       <slot />

@@ -8,7 +8,7 @@
     <div
       class="h-circle-click__action"
       ref="action"
-      :style="{backgroundColor: color}"
+      :style="{ backgroundColor: color }"
     ></div>
     <slot />
   </div>
@@ -47,7 +47,8 @@ export default class CircleClick extends Vue {
 
     const watcher = this.$refs.watcher as HTMLElement;
     const rect = watcher.getBoundingClientRect();
-    const shift = rect.width / 2;
+    const shift =
+      rect.width / 2 + parseInt(window.getComputedStyle(watcher).paddingLeft || '0', 10);
     this.target.style.width = rect.width + 'px';
     this.target.style.height = rect.width + 'px';
     this.target.style.opacity = '1';
@@ -70,11 +71,11 @@ export default class CircleClick extends Vue {
 
   public async hide() {
     this.animLeave = anime({
-        targets: this.target,
-        opacity: 0,
-        easing: 'easeOutCubic',
-        duration: 150,
-      });
+      targets: this.target,
+      opacity: 0,
+      easing: 'easeOutCubic',
+      duration: 150,
+    });
     await this.animLeave.finished;
   }
 }
