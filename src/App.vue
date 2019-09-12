@@ -11,18 +11,15 @@ export default class App extends Vue {}
 </script>
 
 <style lang="scss">
-@import "reset-css";
-@import "~material-design-icons/iconfont/material-icons.css";
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800");
+@import 'assets/scss/main_once.scss';
+
 
 body {
   height: 100vh;
 }
 
 #app {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
   color: #2c3e50;
 
   background: {
@@ -35,7 +32,5 @@ body {
   width: 100%;
   min-height: 100%;
   -webkit-tap-highlight-color: transparent;
-
-
 }
 </style>

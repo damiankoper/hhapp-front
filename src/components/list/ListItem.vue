@@ -21,7 +21,7 @@
 
 <script lang='ts'>
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import CircleClick from '@/components/style/buttons/CircleClick.vue';
+import CircleClick from '@/components/style/CircleClick.vue';
 // tslint:disable-next-line
 const colors = require("@/assets/scss/variables/_variables.scss");
 @Component({

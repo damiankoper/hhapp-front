@@ -17,7 +17,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Logo from './Logo.vue';
-import IconButton from './../style/buttons/IconButton.vue';
+import IconButton from './../buttons/IconButton.vue';
 @Component({
   components: {
     Logo,

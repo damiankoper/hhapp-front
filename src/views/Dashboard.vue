@@ -25,7 +25,7 @@
         </template>
       <template v-slot:empty>
         <div class="empty">
-          <i class="material-icons empty__icon">add_shopping_cart</i>
+          <i class="material-icons empty__icon">emoji_food_beverage</i>
           <h5>List is empty</h5>
           <p>Save bought product and it<br>will show up here</p>
         </div>

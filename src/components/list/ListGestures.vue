@@ -40,7 +40,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import Hammer from 'hammerjs';
 import anime from 'animejs';
-import CircleClick from '@/components/style/buttons/CircleClick.vue';
+import CircleClick from '@/components/style/CircleClick.vue';
 import Color from 'color';
 // tslint:disable-next-line
 const colors = require("@/assets/scss/variables/_variables.scss");

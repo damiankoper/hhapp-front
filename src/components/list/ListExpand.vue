@@ -41,12 +41,12 @@
     >
       <slot />
     </div>
-  </div>
+  </div> 
 </template>
 
 <script lang='ts'>
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import IconButton from './../style/buttons/IconButton.vue';
+import IconButton from './../buttons/IconButton.vue';
 import anime from 'animejs';
 import Hammer from 'hammerjs';
 @Component({
