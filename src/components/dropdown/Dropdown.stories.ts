@@ -20,7 +20,7 @@ storiesOf('Dropdown', module)
     template: `
       <dropdown style="margin-left:40px;" :visible="visible">
         <template v-slot:reference>
-          <icon-button>
+          <icon-button @click="()=>visible=!visible">
             more_horiz
           </icon-button>
         </template>

@@ -1,6 +1,6 @@
 <template>
   <circle-click
-    :color="colors['color-secondary-light']"
+    :color="colors['color-primary-dark']"
     class="h-icon-button"
     tabindex="0"
     @click="(e)=>$emit('click', e)"
@@ -38,7 +38,7 @@ export default class BlockReveal extends Vue {
     position: relative;
   }
   &:hover {
-    background-color: $color-secondary-lighter;
+    background-color: $color-primary-darker;
   }
   i {
     font-size: 24px;

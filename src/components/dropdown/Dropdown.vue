@@ -1,8 +1,11 @@
 <template>
   <div class="h-dropdown">
-    <slot name="reference"/>
+    <slot name="reference" />
     <transition name="body">
-      <div class="h-dropdown__body h-elevated-8" v-if="visible">
+      <div
+        class="h-dropdown__body h-elevated-8"
+        v-if="visible"
+      >
         <slot />
       </div>
     </transition>
@@ -13,7 +16,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 @Component({})
 export default class Dropdown extends Vue {
-  @Prop({default: false})
+  @Prop({ default: false })
   public visible!: boolean;
 
   public top = true;
@@ -35,9 +38,6 @@ export default class Dropdown extends Vue {
     border-radius: 4px;
     z-index: 1;
     top: 90%;
-    transition: transform opacity 0.25s;
-    transform: 'scale(1)';
-    opacity: 1;
     &--top {
       top: 0;
     }
@@ -51,8 +51,21 @@ export default class Dropdown extends Vue {
       right: 0;
     }
 
-    .body-leave-to, .body-enter {
-      transform: 'scale(0.8)';
+    &.body-enter-active {
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    &.body-leave-active {
+      transition: transform 0.15s, opacity 0.15s;
+    }
+    &.body-enter-to,
+    &.body-leave {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    &.body-leave-to,
+    &.body-enter {
+      transform: scale(0.8);
       opacity: 0;
     }
 
